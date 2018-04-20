@@ -1,0 +1,16 @@
+language: node_js
+node_js: '8'
+install:
+- if [[ `npm -v` != 5.7* ]]; then npm i -g npm@5.7; fi
+- npm install -g codecov
+- npm ci
+script:
+- npm run test
+- codecov
+deploy:
+  provider: npm
+  email: mail.dvync@gmail.com
+  api_key:
+    secure: I7luh0Q0RxSGKVtPrzA9+0KdOkxHEOlXEDe9EfEdvCy2m+KTJM3rA/1IWa3f4HR2OjnJzBDqH9vJ/BjfJIUygrhCRScsdDEHhZD+42IDrEIxtmn/Czfploh4gIxixplXwntm11Wva+JkoCx6n/v/sNureMzIkkKYaEIP+1gMlMdlnNayt22zvXcQ4s+artZUQp9+bdjD0LlfM/cV+7ziMT+x9qFWXILtrsBcIrqP3xXJMISJtgJ6IVDnYA5sFo4dtrT9SEIZrSeSKMFEQ3qlQP13fDVUY0s2b5hjPhmEg5esBdJrID7E8Ow5YFm0eCEb5w+GKmJACjgSJaAFrPNx2vwS0OlIOaXaGxAvRNWVuzpXLVzW+UInHx64jkN8zwippqtW2Be46Ob6cfyxvNloaFdf3rEXqrirrr5MvUjvXqQHzv7uEEJADz1AQhOWvCKDuaZhRYg2SGAPt1yuImMw1FnROWSYeMPq80ZwRX//InNTf7LL6V4AccIR0FYUlNCQYdp6IOipgINrxZo1J32blq9u6BvJUco3f85gurPDFBRvM7RF6LX86CKZNhw6y4NEGWSo0TZLFfmvVaniWOkiUymUChfdR8wkSwyb4OZifpActRX2KfYBPbp5ltnYualV1zqxos3VgNBbkjUcn2GIke1GlrzBsf4fB7qHG9Mh4mE=
+  on:
+    repo: indmind/id-http
